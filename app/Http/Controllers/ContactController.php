@@ -194,9 +194,13 @@ class ContactController extends Controller
                     ->orWhere('country', 'like', "%{$searchTerm}%");
             })
             ->with(['phones', 'emails', 'addresses'])
-            ->get();
+            ->paginate(20);
 
-        // Return filtered contacts in the JSON response
+        // Check if no results were found
+        if ($contacts->isEmpty()) {
+            return response()->json(['message' => 'No contacts found.'], 404);
+        }
+
         return response()->json($contacts);
     }
 }
