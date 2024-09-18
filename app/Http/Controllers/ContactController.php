@@ -50,7 +50,7 @@ class ContactController extends Controller
             foreach ($request->phones as $phone) {
                 Phone::create([
                     'contact_id' => $contact->id,
-                    'number' => $phone['number']
+                    'number' => $phone['phone']
                 ]);
             }
         }
