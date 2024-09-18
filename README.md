@@ -7,6 +7,33 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Instructions of instalation and run project
+
+- First you will need to create the database.
+- You need install project dependencies:
+```bash
+  composer install
+```
+- Configure ports and access keys in your .env, the following command will create a copy of the env.example to be your .env file:
+```bash
+  cp .env.example .env
+```
+- Generate your key application
+```bash
+  php artisan key:generate
+```
+- You have to run the migrations and seeders in order to have the tables with fictitious data and to be able to work with them:
+```bash
+  php artisan migrate
+  php artisan db:seed
+```
+- Finally, raise the server with the following command:
+```bash
+  php artisan serve
+```
+your application will be raised on the following route *http://127.0.0.1:8000* or *http://localhost:8000*
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
